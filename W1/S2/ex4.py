@@ -1,16 +1,16 @@
 # Removing elements from a dictionary
 
-# create a dictionary
+# Create a dictionary
 squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
-# remove a particular item, returns its value
+# Removes a particular item, returns its value
 print(squares.pop(4))  # 16
 print(squares.pop(5))  # 25
 
-# # Output: {1: 1, 2: 4, 3: 9, 5: 25}
-print(squares, type(squares))
+# Print the dictionary
+print(squares, type(squares))  # Output: {1: 1, 2: 4, 3: 9, 5: 25}
 
-# # remove an arbitrary item, return (key,value)
+# Pop the last element in the dictionary returns (key,value)
 item = squares.popitem()
 item_key, item_value = item
 
@@ -18,17 +18,14 @@ print(item, type(item))  # (3, 9)
 print(item_key, type(item_key))  # 3, int
 print(item_value, type(item_value))  # 9, int
 
-# Output: {1: 1, 2: 4, 3: 9}
-print(squares)
+print(squares)  # Output: {1: 1, 2: 4, 3: 9}
 
-# # remove all items
+# Remove all items from the dictionary
 squares.clear()
+print(squares)  # Output: {}
 
-# # Output: {}
-print(squares)
+# Delete the dictionary reference
+# del squares
 
-# # delete the dictionary itself
-# del squares  # free()
-
-# # Throws Error
+# Throws an error since `square` is no longer defined
 # print(squares)

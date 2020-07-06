@@ -27,16 +27,13 @@ print("The dictionary contains %s " % str(course))
 print(type(course['active']))
 
 # Clearing a dictionary
-print(course)
 # course.clear()
-print(course)
+# print(course)  # Output: {}
 
 # Copying a dictionary
 other_course = course.copy()
-# course.clear()
-
-# print(course)
-# print(other_course)
+print(course)
+print(other_course)
 
 # Getting all items
 items = course.items()  # Return  a list of tuples
