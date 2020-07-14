@@ -1,4 +1,6 @@
-# Tic-Tac-Toe
+# CA06 - Python Basics - Review 2
+
+## Tic-Tac-Toe
 
 1. Start by deciding how you will store the player's marker positions (Xs and Os). Imagine the game board and assign numbers to the board.
    1. Which data structure is good for this?
@@ -30,3 +32,7 @@
        1.  For example `is_running`?
 
 10. Make sure you cast data types properly and test your code with different input.
+
+## Solutions
+
+You can find suggested solutions to the problems above [here](./CA06-solutions/).
