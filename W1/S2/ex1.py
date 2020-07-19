@@ -5,20 +5,20 @@ print("The type of 'colors' is: %s" % type(colors))
 print("The tuple contains: %s" % str(colors))
 
 # Print an element
-print(colors[0])
-print(colors[1])
-print(colors[-1])
+print(colors[0])    # Red
+print(colors[1])    # Blue
+print(colors[-1])   # Green
 
 # Unpacking a tuple
 color1, color2, color3 = colors
-# print(color1)
-# print(color1, color2, color3)
+print(color1)   # Red
+print(color1, color2, color3)   # Red Blue Green
 
 # Print the length
-print(len(colors))
+print(len(colors))  # 3
 
 # Count the number of occurences
-print(colors.count('Red'))
+print(colors.count('Red'))  # 1
 
 # Find the index of an element
 print(colors.index('Red'))

@@ -22,7 +22,7 @@ current_player = player1
 # Functions
 #
 
-# Print board
+# print_board(board) - Pretty printing of the game board
 
 
 def print_board(board):
@@ -36,6 +36,8 @@ def print_board(board):
 
     print(board)
 
+
+# ask_for_move(player) - Ask user to provide input for move
 
 def ask_for_move(player):
     position = int(input(f"{player}'s turn. Choose a position (1-9):"))
