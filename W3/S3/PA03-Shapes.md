@@ -24,6 +24,7 @@ Under the folder [Shapes](./Shapes/) you will find 5 files with some classes to 
  2. Override `__str__` for `Square`, `Triangle` and `Circle`. 
     * *Think about what you need to do for each one.*
  3. Add a method `print_information()` to all of `Square`, `Triangle` and `Circle` which prints the information about this shape.
- 4. Create a `Playground.py` and create a one instance of all shapes, print the instances you created. Call the methods `find_area()`, `find_perimeter()` and `find_circumference()`.
+ 4. Create a `Playground.py` and create one instance of all shapes, print the instances you created. Call the methods `find_area()`, `find_perimeter()` and `find_circumference()`.
  5. Create a class diagram for your project including the inheritance model.
-    * Note the attributes and methods for each class. 
+    * Note the attributes and methods for each class.
+    * You can find a template [here](./shapes-class-diagram.drawio).
