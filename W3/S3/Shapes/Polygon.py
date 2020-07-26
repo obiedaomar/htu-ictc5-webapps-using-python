@@ -1,4 +1,4 @@
-from Shape import Shape
+from shape import Shape
 
 # Polygon class
 
@@ -14,6 +14,9 @@ class Polygon(Shape):
         # keeps track of how many sides a polygon has and the sides
         self.n = no_of_sides
         self.sides = [0 for i in range(no_of_sides)]
+
+    def __str__(self):
+        return f"I am a polygon with {self.n} sides."
 
     # instance methods
     def input_sides(self):

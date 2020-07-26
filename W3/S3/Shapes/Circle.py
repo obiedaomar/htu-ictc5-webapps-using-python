@@ -1,4 +1,4 @@
-from Shape import Shape
+from shape import Shape
 
 # Circle class
 
@@ -7,14 +7,14 @@ class Circle(Shape):
     pass
     # TODO: Implement __init__() for this class
 
-    def __init__(self):
+    def __init__(self, radius=1.0):
         # Remember this is a subclass of Shape!
-        pass
+        self.radius = radius
 
     # TODO: Implement find_area() for this class
     def find_area(self):
-        pass
+        return 3.14 * self.radius**2
 
     # TODO: Implement find_circumference() for this class
     def find_circumference(self):
-        pass
+        return 2 * 3.14 * self.radius

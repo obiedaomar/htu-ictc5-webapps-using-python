@@ -40,10 +40,10 @@ print(linux_distros)
 # print(linux_distros.index("Arch"))
 print(linux_distros.index("Mint"))
 
-# # Reverse the list
-# print(linux_distros)
-# linux_distros.reverse()
-# print(linux_distros)
+# Reverse the list
+print(linux_distros)
+linux_distros.reverse()
+print(linux_distros)
 
 # # Sort the list
 # print(linux_distros)

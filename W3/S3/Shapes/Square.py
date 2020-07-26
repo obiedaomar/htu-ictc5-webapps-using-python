@@ -1,20 +1,16 @@
-from Polygon import Polygon
+from polygon import Polygon
 
 # Square class
 
 
 class Square(Polygon):
-    # TODO: Implement __init__() for this class
-    def __init__(self):
-        # Remember this is a subclass of Polygon!
-        pass
+    def __init__(self, length, width):
+        super().__init__(2)
+        self.length = length
+        self.width = width
 
-    # TODO: Implement find_area() for this class
     def find_area(self):
-        # returns the area
-        pass
+        return self.length * self.width
 
-    # TODO: Implement find_perimeter() for this class
     def find_perimeter(self):
-        # returns the perimeter
-        pass
+        return 2 * self.length + 2 * self.width

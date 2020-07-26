@@ -22,14 +22,14 @@ print(slice1)
 print(slice2)
 print(slice3)
 
-slices_concatenated = slice2 + slice1
-print(slices_concatenated)
+# slices_concatenated = slice2 + slice1
+# print(slices_concatenated)
 
-# slice3 = first_message[2:]
-# slice4 = first_message[:4]
-# slice5 = first_message[::2]
+slice3 = first_message[2:]
+slice4 = first_message[:4]
+slice5 = first_message[::2]
 
-# # What would the following lines print?
-# print(slice3)
-# print(slice4)
-# print(slice5)
+# What would the following lines print?
+print(slice3)
+print(slice4)
+print(slice5)

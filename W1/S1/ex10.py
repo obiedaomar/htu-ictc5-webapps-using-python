@@ -6,12 +6,12 @@ fat_cat = """
 I'll do a list:
 \t* Cat food
 \t* Fishes
-\t* Catnip\n\t* Grass
+\t* Catnips\t* Grass
 """
 
 print("Now let us print our cats!")
 
-print(tabby_cat)
-print(persian_cat)
-print(backslash_cat)
+# # print(tabby_cat)
+# # print(persian_cat)
+# print(backslash_cat)
 print(fat_cat)
