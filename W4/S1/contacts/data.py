@@ -44,3 +44,7 @@ sesame_street.print_all_contacts()
 # call search_by_label()
 sesame_street.search_by_label("Friend")
 sesame_street.search_by_label("Music")
+
+# call delete_contact()
+sesame_street.delete_contact(roosevelt)
+sesame_street.delete_contact(roosevelt)

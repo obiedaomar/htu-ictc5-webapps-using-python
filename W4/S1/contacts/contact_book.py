@@ -30,6 +30,14 @@ class ContactBook:
         else:
             return None
 
+    # delete_contact(contact)
+    def delete_contact(self, contact):
+        if contact in self.contacts:
+            print("Removing contact...")
+            self.contacts.remove(contact)
+        else:
+            print("Contact does not exist.")
+
     # search(keyword)
     def search(self, keyword=""):
 
