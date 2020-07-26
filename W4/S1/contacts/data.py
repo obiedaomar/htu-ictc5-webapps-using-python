@@ -1,35 +1,34 @@
 from contact import Contact
 from contact_book import ContactBook
 
-book = ContactBook()
+# create contact for Cookie Monster
 
-# Contact GK
-contact = Contact("George", "Khoury")
+cookie = Contact("Cookie", "Monster")
+cookie.add_phone("12345678", "Work")
+cookie.add_phone("00123456", "Cookie Line")
+cookie.add_label("Cookie")
+cookie.add_label("Friend")
 
-contact.add_phone("123456789", "Work")
-contact.add_phone("001234567", "Home")
+# create contact for Don Music
 
-contact.add_label("HTU")
-contact.add_label("Programmer friends")
+don = Contact("Don", "Music")
+don.add_label("Music")
+don.add_label("Friend")
 
-book.add(contact)
+# create contact for Roosevelt Franklin
 
-# Contact GK
-contact = Contact("Bert", "Khoury")
+roosevelt = Contact("Roosevelt", "Franklin")
 
-contact.add_phone("123456789", "Private")
+# create a contact book
+sesame_street = ContactBook()
 
-contact.add_label("Sesame Street")
-contact.add_label("Friends")
+# add contacts to contact book
+sesame_street.add(cookie)
+sesame_street.add(don)
+sesame_street.add(roosevelt)
 
-book.add(contact)
+# print the number of contacts in contact book
+print(len(sesame_street.contacts))
 
-# Print all contacts
-book.print_all_contacts()
-
-# Find by name
-print(book.search("friends"))
-
-print(book.search("Bert"))
-print(book.search("George"))
-print(book.search("friend"))
+# print all contacts
+sesame_street.print_all_contacts()
