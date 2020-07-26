@@ -56,6 +56,26 @@ class ContactBook:
             else:
                 print(f"No results found matching the keyword: '{keyword}'.")
 
+    def search_by_label(self, label):
+        print(f"Searching for '{label}'")
+
+        # declare a local variable 'results'
+        results = list()
+
+        # loop over every contact in self.contacts
+        for contact in self.contacts:
+            if contact.check_label(label):
+                results.append(contact)
+
+        # check if we found any matches
+        if len(results) > 0:
+            print(
+                f"Found {len(results)} contacts with the label: '{label}'.")
+            for contact in results:
+                print(contact)
+        else:
+            print(f"No results found matching the keyword: '{label}'.")
+
     # print_all_contacts()
     def print_all_contacts(self):
         # print all contacts in contact book

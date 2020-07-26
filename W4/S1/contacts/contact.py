@@ -11,7 +11,7 @@ class Contact:
 
         self.fname = fname
         self.lname = lname
-        self.email = ""
+        self.emails = list()
         self.phone_numbers = dict()
         self.labels = list()
 
@@ -38,3 +38,19 @@ class Contact:
     def add_label(self, label):
         # append label to the contact list of labels
         self.labels.append(label)
+
+    # add_email(label)
+    def add_email(self, email):
+        self.emails.append(email)
+
+    # check_label()
+    def check_label(self, label):
+        if label in self.labels:
+            return True
+        else:
+            return False
+
+    # print emails()
+    def print_emails(self):
+        for email in self.emails:
+            print(f"{self.fname} has email: '{email}'")
