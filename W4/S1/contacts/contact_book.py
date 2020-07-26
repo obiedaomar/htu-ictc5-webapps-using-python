@@ -89,3 +89,25 @@ class ContactBook:
         # print all contacts in contact book
         for contact in self.contacts:
             print(contact)
+
+    # print_book()
+    def print_book(self):
+
+        print(f"Printing the book...\n")
+
+        total_number_of_contacts = len(self.contacts)
+        contacts_without_phone = 0
+        contacts_without_email = 0
+
+        for contact in self.contacts:
+            if len(contact.phone_numbers) == 0:
+                contacts_without_phone += 1
+
+            if len(contact.emails) == 0:
+                contacts_without_email += 1
+
+        print(f"The contact book has {total_number_of_contacts} contacts.")
+        print(f"{contacts_without_phone} contacts without a phone number.")
+        print(f"{contacts_without_email} contacts without an email address.\n")
+
+        # return contacts_without_phone, contacts_without_email
