@@ -15,7 +15,7 @@
 | [W3S2 - OOP - Part 1](./W3/S2/)              | [CA08](./W3/S2/CA08.md)             |                NA                |
 | [W3S3 - OOP - Part 2](./W3/S3/)              | [CA09](./W3/S3/CA00.md)             |  [PA03](./W3/S3/PA03-Shapes.md)  |
 | **Week 4**                                   |
-| [W4S1 - OOP - Part 3](./W4/S1/)              | [CA10](./W2/S2/CA00.md)             |                NA                |
+| [W4S1 - OOP - Part 3](./W4/S1/)              | [CA10](./W4/S1/CA10.md)             |                NA                |
 | [W4S2 - Introduction to Git](./W4/S2/)       | [CA11](./W2/S2/CA00.md)             |                NA                |
 | [W4S3 - More about Git](./W4/S3/)            | [CA12](./W2/S2/CA00.md)             |                NA                |
 | **Week 5**                                   |
