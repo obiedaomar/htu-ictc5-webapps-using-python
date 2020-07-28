@@ -17,7 +17,7 @@
 | **Week 4**                                   |
 | [W4S1 - OOP - Part 3](./W4/S1/)              | [CA10](./W4/S1/CA10.md)             |                NA                |
 | [W4S2 - Introduction to Git](./W4/S2/)       | [CA11](./W4/S2/CA11.md)             |                NA                |
-| [W4S3 - More about Git](./W4/S3/)            | [CA12](./W4/S3/CA00.md)             |  [PA04](./W3/S3/PA03-Shapes.md)  |
+| [W4S3 - More about Git](./W4/S3/)            | [CA12](./W4/S3/CA12.md)             |     [PA04](./W3/S3/PA04-.md)     |
 | **Week 5**                                   |
 | [W5S1 - Flask Basics - Part 1](./W4/S1/)     | [CA13](./W5/S1/CA00.md)             |                NA                |
 | [W5S2 - Flask Basics - Part 2](./W4/S1/)     | [CA14](./W5/S2/CA00.md)             |                NA                |
