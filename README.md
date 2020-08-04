@@ -17,8 +17,12 @@
 | **Week 4**                                   |
 | [W4S1 - OOP - Part 3](./W4/S1/)              | [CA10](./W4/S1/CA10.md)             |                NA                |
 | [W4S2 - Introduction to Git](./W4/S2/)       | [CA11](./W4/S2/CA11.md)             |                NA                |
-| [W4S3 - More about Git](./W4/S3/)            | [CA12](./W4/S3/CA12.md)             |     [PA04](./W3/S3/PA04-.md)     |
+| [W4S3 - More about Git](./W4/S2/)            | [CA12](./W4/S2/CA11.md)             |                NA                |
 | **Week 5**                                   |
-| [W5S1 - Flask Basics - Part 1](./W4/S1/)     | [CA13](./W5/S1/CA00.md)             |                NA                |
-| [W5S2 - Flask Basics - Part 2](./W4/S1/)     | [CA14](./W5/S2/CA00.md)             |                NA                |
-| [W5S3 - Flask Basics](./W4/S1/)              | [CA15](./W5/S3/CA00.md)             |                NA                |
+| NA                                           | NA                                  |                NA                |
+| NA                                           | NA                                  |                NA                |
+| [W5S3 - Advanced Python Topics](./W5/S3/)    | NA                                  |     [PA04](./W5/S3/PA04.md)      |
+| **Week 6**                                   |
+| [W6S1 - Flask Basics - Part 1](./W6/S1/)     | [CA13](./W6/S1/CA00.md)             |                NA                |
+| [W6S2 - Flask Basics - Part 2](./W6/S2/)     | [CA14](./W6/S2/CA00.md)             |                NA                |
+| [W6S3 - Flask Basics - Part 3](./W6/S3/)     | [CA15](./W6/S3/CA00.md)             |     [PA05](./W6/S3/PA05.md)      |
