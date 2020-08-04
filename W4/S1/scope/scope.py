@@ -1,5 +1,6 @@
 # Scope
 
+# global scope
 a, b, c = 1, 2, 3
 
 # Define a function to print the values
@@ -22,13 +23,19 @@ def another_function():
 
 
 def global_function():
-    # global a, b, c
-    a, b, c = 9, 9, 9
+    global a, b, c
+
+    globals()['a'] = 9
+    globals()['b'] = 9
+    globals()['c'] = 9
+
     print_values(a, b, c)
 
 
 # What would this do?
-# some_other_function(4, 5, 6)
-# another_function()
-# global_function()
+
+print_values(a, b, c)
+some_other_function(4, 5, 6)
+another_function()
+global_function()
 print_values(a, b, c)
