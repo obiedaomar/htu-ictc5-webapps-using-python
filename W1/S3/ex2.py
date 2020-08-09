@@ -50,30 +50,30 @@ for song_id in favorite_songs:
     #         print(f"The song {title} has the following tag: {tag}.")
 
 
-# Iterating over a netsted data structure
+# # Iterating over a netsted data structure
 
-squares = [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+# squares = [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
 
-for number, number_square in squares:
-    # What would this print?
-    print(f"The square of {number} is {number_square}.")
+# for number, number_square in squares:
+#     # What would this print?
+#     print(f"The square of {number} is {number_square}.")
 
-# while loops
+# # while loops
 
-# The horrible while loop
+# # The horrible while loop
 
-# while True:
-#     pass  # Do nothing
+# # while True:
+# #     pass  # Do nothing
 
-# Infinite while loop
-# i = 0
-# while i < 0:
-#     print("I will stop some time!")
-#     i = i - 1
+# # Infinite while loop
+# # i = 0
+# # while i < 0:
+# #     print("I will stop some time!")
+# #     i = i - 1
 
 
-# While loop
-i = 1
-while i <= 5:
-    print(f"i is currently: {i}")
-    i = i + 1
+# # While loop
+# i = 1
+# while i <= 5:
+#     print(f"i is currently: {i}")
+#     i = i + 1

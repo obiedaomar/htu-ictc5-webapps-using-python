@@ -6,7 +6,7 @@ x = -20
 
 if x < 0:
     print(f"{x} is a negative number.")
-    print("I belong to the else.")
+    print("I belong to the if.")
 else:
     print(f"{x} is a positive number.")
     print("I belong to the else.")

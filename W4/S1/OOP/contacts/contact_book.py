@@ -88,7 +88,9 @@ class ContactBook:
     def print_all_contacts(self):
         # print all contacts in contact book
         for contact in self.contacts:
+            # print(type(contact))
             print(contact)
+            # print(self.contacts)
 
     # print_book()
     def print_book(self):
