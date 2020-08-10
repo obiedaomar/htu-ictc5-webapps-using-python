@@ -1,4 +1,7 @@
 from flask import Flask  # import flask
+from flask import render_template
+from flask import url_for
+
 import random
 
 app = Flask(__name__)  # create a new flask application
@@ -7,27 +10,31 @@ app = Flask(__name__)  # create a new flask application
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def render_index():
+    menu = [{"title":"Home", "url":url_for("render_index")},
+            {"title":"Hello", "url":url_for("say_hello")},
+            {"title":"Greet", "url":url_for("greet")}]
+    return render_template("index.html", global_style=url_for("static", filename="style.css"), menu = menu)
 
 
 @app.route('/hello')
 def say_hello():
-    return 'Welcome to Python web!'
+    return render_template("hello.html", go_home=url_for("render_index"))
 
 
 @app.route('/magic8')
 def magic_8():
     rndx = random.randint(1, 10)
-    return f"Your lucky number is {rndx}."
+    return render_template("magic8.html", random_number=rndx)
 
 
+@app.route('/greet/')
 @app.route('/greet/<name>')
-def greet(name):
-    return 'Hello, ' + str(name).capitalize() + '!'
+def greet(name=None):
+    return render_template('greet.html', name=name, go_home=url_for("render_index"))
 
 
 # run your flask application
 
 if __name__ == "__main__":  # on running python app.py
-    app.run()  # run the flask app
+    app.run(debug=True)  # run the flask app
