@@ -28,7 +28,7 @@ for char in my_message:
 
 favorite_songs = {
     1: {"title": "Breathe", "artist": "Pink Floyd", "tags": ["Rock", "Electric Guitar"]},
-    2: {"title": "November Rain", "artist": "Guns N' Roses", },
+    2: {"title": "November Rain", "artist": "Guns N' Roses" },
     3: {"title": "I Want To Break Free", "artist": "Queen"},
     4: {"title": "Don't Stop Me Now", "artist": "Queen", "tags": ["Rock", "Electric Guitar"]}
 }
@@ -37,7 +37,7 @@ for song_id in favorite_songs:
     title = favorite_songs[song_id].get('title')
     artist = favorite_songs[song_id].get('artist')
     tags = favorite_songs[song_id].get('tags')
-
+    
     # What would this print?
     print(f"'{title}' a great song by '{artist}'.")
     if tags:
@@ -52,11 +52,11 @@ for song_id in favorite_songs:
 
 # # Iterating over a netsted data structure
 
-# squares = [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+squares = [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
 
-# for number, number_square in squares:
-#     # What would this print?
-#     print(f"The square of {number} is {number_square}.")
+for number, number_square in squares:
+    # What would this print?
+    print(f"The square of {number} is {number_square}.")
 
 # # while loops
 
@@ -65,15 +65,15 @@ for song_id in favorite_songs:
 # # while True:
 # #     pass  # Do nothing
 
-# # Infinite while loop
-# # i = 0
-# # while i < 0:
-# #     print("I will stop some time!")
-# #     i = i - 1
+# Infinite while loop
+i = 0
+while i < 0:
+    print("I will stop some time!")
+    i = i - 1
 
 
-# # While loop
-# i = 1
-# while i <= 5:
-#     print(f"i is currently: {i}")
-#     i = i + 1
+# While loop
+i = 1
+while i <= 5:
+    print(f"i is currently: {i}")
+    i = i + 1

@@ -46,7 +46,7 @@ set1.discard(4)
 # Pop an element
 print(set1)
 value = set1.pop()
-print(set1)
+print("Popping: ", value)
 
 # Membership check
 print("Is 3 a member of set1? %s" % (3 not in set1))

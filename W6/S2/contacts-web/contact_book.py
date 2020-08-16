@@ -25,15 +25,21 @@ class ContactBook:
 
     # get_contact(contact, keyword)
     def get_contact(self, contact_id):
-        return self.contacts[contact_id]
+        contact = self.contacts[contact_id]
+
+        if contact:
+            return contact
+        else:
+            return None
 
     # delete_contact(contact)
-    def delete_contact(self, contact):
-        if contact in self.contacts:
-            print("Removing contact...")
+    def delete_contact(self, contact_id):
+        contact = self.get_contact(contact_id)
+
+        if contact:
             self.contacts.remove(contact)
         else:
-            print("Contact does not exist.")
+            return None
 
     # get_contacts()
     def get_contacts(self):
