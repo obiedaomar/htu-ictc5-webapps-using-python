@@ -8,7 +8,7 @@ class Contact:
         #
         # instance attributes
         #
-
+        self.id = id(self)
         self.fname = fname
         self.lname = lname
         self.emails = list()

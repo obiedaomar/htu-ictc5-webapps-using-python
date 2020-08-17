@@ -30,6 +30,7 @@ def contacts_card():
 
 @app.route('/contacts/add', methods=['POST', 'GET'])
 def add_contact():
+    print("Called")
     if request.method == 'GET':
         return render_template('add-contact.html', site = site)
     if request.method == 'POST':
@@ -58,6 +59,48 @@ def get_contact(contact_id):
 def delete_contact(contact_id):
     contact_book.delete_contact(contact_id)
     return redirect(url_for('contacts'))
+
+@app.route('/phone/add/<int:contact_id>', methods=['POST'])
+def add_phone(contact_id):
+
+    # read the values from the modal form
+    phone_number = request.form['phoneNumber']
+    label = request.form['label']
+
+    # add phone number to the contact   
+    contact = contact_book.get_contact(contact_id)
+    contact.add_phone(phone_number, label)
+
+    # render the contact again
+    return render_template('contact.html', contact = contact, site = site )
+
+@app.route('/email/add/<int:contact_id>', methods=['POST'])
+def add_email(contact_id):
+    email = request.form['email']
+
+    # retrieve the contact and add the email
+    contact = contact_book.get_contact(contact_id)
+    contact.add_email(email)
+
+    return redirect(url_for('get_contact', contact_id = contact.id , site = site))
+
+@app.route('/label/add/<int:contact_id>', methods=['GET','POST'])
+def add_label(contact_id):
+
+    contact = contact_book.get_contact(contact_id)
+
+    if request.method == 'GET':
+        return render_template('add-label.html', site=site, contact_id = contact_id, contact= contact)
+
+    if request.method == 'POST':
+        # read the label from the form submission
+        label = request.form['label']
+        
+        # add the label to the user
+        contact.add_label(label)
+
+        return redirect(url_for('get_contact', contact_id = contact_id, contact = contact, site = site))
+
 
 # register template global function
 @app.template_global()
