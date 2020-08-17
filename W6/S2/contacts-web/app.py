@@ -9,7 +9,7 @@ app.secret_key = os.getenv('SECRET_KEY', 'secret string')
 
 # site wide settings
 site = {
-    'name':'Contact Book'
+    'name':'Sesame Book'
 }
 
 # generate list of contacts
