@@ -37,6 +37,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% if username %}
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('contacts')}}">Contacts</a>
@@ -46,11 +47,22 @@
               >Add Contact</a
             >
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('profile')}}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form
+          class="form-inline my-2 my-lg-0"
+          method="POST"
+          action="{{url_for('search')}}"
+        >
           <input
             class="form-control mr-sm-2"
             type="search"
+            name="keyword"
             placeholder="Search"
             aria-label="Search"
           />
@@ -58,6 +70,16 @@
             Search
           </button>
         </form>
+        {% else %}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('signup')}}">Signup</a>
+          </li>
+        </ul>
+        {% endif %}
       </div>
     </nav>
 

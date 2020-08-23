@@ -12,7 +12,7 @@ def index():
         return 'Logged in as %s' % escape(session['username'])
     return 'You are not logged in'
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])    # 405 Method Not Allowed
 def login():
     if request.method == 'POST':
         session['username'] = request.form['username']
@@ -29,3 +29,7 @@ def logout():
     # remove the username from the session if it's there
     session.pop('username', None)
     return redirect(url_for('index'))
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

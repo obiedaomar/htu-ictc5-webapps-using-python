@@ -1,7 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <div class="jumbotron">
   <div class="container">
+    {% if username %}
+    <h1 class="display-5">Hello, {{username}}!</h1>
+    {% else %}
     <h1 class="display-5">Welcome to {{site.name}}!</h1>
+    {% endif %}
   </div>
 </div>
 <div>

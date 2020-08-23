@@ -23,7 +23,7 @@ class ContactBook:
     def add(self, contact):
         self.contacts[contact.id] = contact
 
-    # get_contact(contact, keyword)
+    # get_contact(contact_id)
     def get_contact(self, contact_id):
         return self.contacts.get(contact_id)
 
@@ -46,27 +46,31 @@ class ContactBook:
     def search(self, keyword=""):
 
         # declare a local variable 'results'
-        results = list()
+        results = set()
 
         # loop over every contact in self.contacts
-        for contact in self.contacts:
+        for contact_id, contact in self.contacts.items():
 
-            # call get_contact(contact, keyword)
-            contact = self.get_contact(contact, keyword)
+            print(contact.lname.lower(), keyword.lower())
 
-            # check if contact exists
-            if contact != None:
-                # append to list of results
-                results.append(contact)
+            # search by lname and fname
+            if (keyword.lower() in contact.fname.lower()) or (keyword.lower() in contact.lname.lower()):
+                results.add(contact)
+                print(f"Searching for {keyword}")
 
-            # check if we found any matches
-            if len(results) > 0:
-                print(
-                    f"Found {len(results)} results matching the keyword '{keyword}'.")
-                for contact in results:
-                    print(contact)
-            else:
-                print(f"No results found matching the keyword: '{keyword}'.")
+
+            # search in biography text
+            if keyword in contact.biography:
+                results.add(contact)
+            
+            # search in list of labels
+            if len(contact.labels) > 0 and keyword.lower() in contact.labels:
+                results.add(contact)
+            
+        if len(results) > 0:
+            return results
+        else:
+            return None
 
     def search_by_label(self, label):
         print(f"Searching for '{label}'")

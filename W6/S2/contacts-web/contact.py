@@ -3,7 +3,7 @@
 class Contact:
 
     # init for Contact(fname, lname)
-    def __init__(self, fname, lname):
+    def __init__(self, username, fname, lname):
 
         #
         # instance attributes
@@ -14,8 +14,10 @@ class Contact:
         self.emails = list()
         self.phone_numbers = dict()
         self.labels = list()
+        self.biography = ""
         self.avatar_url = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.wikia.com%2Fmuppet%2Fimages%2Fa%2Faa%2FCookieMonsterOpenedMouth.png&f=1&nofb=1"
-    
+        self.friends = set()
+
         print(f"A new contact for '{self.fname}' has been created.")
 
     #
@@ -48,6 +50,14 @@ class Contact:
     # add_email(label)
     def add_email(self, email):
         self.emails.append(email)
+
+    # add_friend(friend):
+    def add_friend(self, friend):
+        self.friends.add(friend)
+
+    # get_friends()
+    def get_friends(self):
+        return self.friends
 
     # update_biography(biography)
     def update_biography(self, biography):
