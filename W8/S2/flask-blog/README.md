@@ -11,7 +11,7 @@ This project is a very simple version of the flask blog app in http://flask.poco
 
 ## Run the blog app
 
-In a Windows prompt enter with the following commands:
+On a **Windows** command prompt, run the following commands:
 
 ```sh
 $ set FLASK_APP=blog
@@ -20,7 +20,7 @@ $ flask init-db
 $ flask run
 ```
 
-In a Mac or Linux prompt enter with the following commands:
+On a **Mac** or **Linux** terminal, run the following commands:
 
 ```sh
 $ export FLASK_APP=blog
