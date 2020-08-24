@@ -16,6 +16,7 @@ class UserDB:
                 
 class User:
 
+    contact_book = None
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -25,3 +26,6 @@ class User:
             return True
         else:
             return False
+
+    def assign_contact_book(self, contact_book):
+        self.contact_book = contact_book
