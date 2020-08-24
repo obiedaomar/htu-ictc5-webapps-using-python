@@ -2,12 +2,12 @@
 
 This project is a very simple version of the flask blog app in http://flask.pocoo.org/docs/1.0/tutorial/
 
-## How to use
+## Project Setup
 
-* It's a Python 3.7.2 project.
-* Create a virtual env.
-* Clone this repository.
-* Install the requirements
+* Clone the project files.
+* Create a virtual environment.
+  * You need Python 3.6 or higher.
+  * Install the requirements (`python -m pip install -r requirements.txt`).
 
 ## Run the blog app
 
@@ -23,10 +23,10 @@ $ flask run
 In a Mac or Linux prompt enter with the following commands:
 
 ```sh
-$ export FLASK_APP=flaskr
+$ export FLASK_APP=blog
 $ export FLASK_ENV=development
 $ flask init-db
 $ flask run
 ```
 
-In web navigator access http://127.0.0.1:5000/
+In a web browser, go to [http://127.0.0.1:5000/]
