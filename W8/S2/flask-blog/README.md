@@ -2,7 +2,7 @@
 
 This project is a very simple version of the flask blog app in http://flask.pocoo.org/docs/1.0/tutorial/
 
-## Project Setup
+## Project setup
 
 * Clone the project files.
 * Create a virtual environment.
