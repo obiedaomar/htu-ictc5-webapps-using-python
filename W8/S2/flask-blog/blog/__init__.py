@@ -31,13 +31,20 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
+    # import helper DB functions
     from . import db
     db.init_app(app)
 
+    # register the 'blog' blueprint
     from . import blog
     app.register_blueprint(blog.bp)
 
+    # register the 'user' blueprint
     from . import user
     app.register_blueprint(user.bp)
 
+    # register the 'login' blueprint
+    from . import login
+    app.register_blueprint(login.bp)
+    
     return app
