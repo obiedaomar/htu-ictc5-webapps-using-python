@@ -29,4 +29,8 @@
 | **Week 7**                                     |
 | [W7S1 - Webapp Development - Part 1](./W7/S1/) | [CA16](./W6/S1/CA00.md)             |                NA                |
 | [W7S1 - Webapp Development - Part 2](./W7/S2/) | [CA17](./W6/S2/CA00.md)             |                NA                |
-| [W7S3 - API design patterns](./W7/S3/)         | [CA18](./W6/S3/CA00.md)             |               PA06               |
+| [W7S3 - API design patterns](./W7/S3/)         | [CA18](./W6/S3/CA00.md)             |                NA                |
+| **Week 8**                                     |
+| [W8S1 - Sessions and Cookies](./W7/S1/)        | [CA19](./W6/S1/CA00.md)             |                NA                |
+| [W8S2 - Revision 1](./W7/S2/)                  | [CA20](./W6/S2/CA00.md)             |                NA                |
+| [W8S3 - Blueprints and Views](./W7/S3/)        | [CA21](./W6/S3/CA00.md)             |     [PA06](./W8/S3/PA06.md)      |
