@@ -14,8 +14,8 @@ This project is a very simple version of the flask blog app in http://flask.poco
 On a **Windows** command prompt, run the following commands:
 
 ```sh
-$ set FLASK_APP=blog
-$ set FLASK_ENV=development
+$ set FLASK_APP="blog"
+$ set FLASK_ENV="development"
 $ flask init-db
 $ flask run
 ```
