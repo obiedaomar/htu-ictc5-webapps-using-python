@@ -34,3 +34,11 @@
 | [W8S1 - Sessions and Cookies](./W7/S1/)        | [CA19](./W6/S1/CA00.md)             |                NA                |
 | [W8S2 - Revision 1](./W7/S2/)                  | [CA20](./W6/S2/CA00.md)             |                NA                |
 | [W8S3 - Blueprints and Views](./W7/S3/)        | [CA21](./W6/S3/CA00.md)             |     [PA06](./W8/S3/PA06.md)      |
+| **Week 9**                                     |
+| [W9S1 - Sessions and Cookies](./W7/S1/)        | NA                                  |                NA                |
+| [W9S2 - Revision 1](./W7/S2/)                  | NA                                  |                NA                |
+| [W9S3 - Blueprints and Views](./W7/S3/)        | NA                                  |                NA                |
+| **Week 10**                                    |
+| [W10S1 - FlaskDo - Review 1](./W7/S1/)         | NA                                  |                NA                |
+| [W10S2 - FlaskDo - Review 2](./W7/S2/)         | NA                                  |                NA                |
+| [W10S3 - FlaskDo - Review 3](./W7/S3/)         | NA                                  |     [PA07](./W10/S3/PA07.md)     |
