@@ -1,0 +1,3 @@
+[submodule "W7/S3/flaskdo"]
+	path = W7/S3/flaskdo
+	url = https://github.com/geokhoury/HTU-PA06-flaskdo
