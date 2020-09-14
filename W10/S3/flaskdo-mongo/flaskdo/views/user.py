@@ -30,7 +30,7 @@ def signup():
         user.save()
         
         # render the login template
-        return render_template('login/login.html')
+        return redirect('/login')
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
