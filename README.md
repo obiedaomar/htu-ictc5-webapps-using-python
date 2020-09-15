@@ -45,4 +45,4 @@
 | **Week 11**                                    |
 | [W11S1 - Using MongoDB with Flask](./W11/S1/)  | NA                                  |                NA                |
 | [W11S2 - Using MongoDB with Flask](./W11/S2/)  | NA                                  |                NA                |
-| [W11S3 - Using MongoDB with Flask](./W11/S3/)  | NA                                  |     [PA07](./W11/S3/PA08.md)     |
+| [W11S3 - Using MongoDB with Flask](./W11/S3/)  | NA                                  |     [PA08](./W11/S3/PA08.md)     |
