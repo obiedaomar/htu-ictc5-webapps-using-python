@@ -42,3 +42,7 @@
 | [W10S1 - FlaskDo - Review 1](./W7/S1/)         | NA                                  |                NA                |
 | [W10S2 - FlaskDo - Review 2](./W7/S2/)         | NA                                  |                NA                |
 | [W10S3 - FlaskDo - Review 3](./W7/S3/)         | NA                                  |     [PA07](./W10/S3/PA07.md)     |
+| **Week 11**                                    |
+| [W11S1 - Using MongoDB with Flask](./W11/S1/)  | NA                                  |                NA                |
+| [W11S2 - Using MongoDB with Flask](./W11/S2/)  | NA                                  |                NA                |
+| [W11S3 - Using MongoDB with Flask](./W11/S3/)  | NA                                  |     [PA07](./W11/S3/PA08.md)     |
