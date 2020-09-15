@@ -46,11 +46,13 @@ def login():
         # get User object based on the filter 'username'
         # User.username (DB) == username (form)
         user = User.query.filter(User.username == username).first()
-
+        
         # check the authentication based on the password from the form
         if user.authenticate(password):
             # add the serialized user object into the session
             session['user'] = user.serialized
+            session['my_special_variable'] = 42
+            session['is_logged_in'] = True
             
             # render the index template
             return render_template('index.html')
@@ -61,7 +63,7 @@ def login():
 @bp.route('/logout')
 def logout():
     # clear the session 'user' attribute
-    user = session.pop('user', None)
+    session.clear()
     
     # redirect to /
     return redirect(url_for('home.index'))

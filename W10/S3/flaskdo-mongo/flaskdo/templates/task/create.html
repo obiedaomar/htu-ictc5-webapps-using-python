@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 <!-- header title block -->
-{% block header_title%}Create a Task List{% endblock%}
+{% block header_title%}Create a Task{% endblock%}
 <!-- header subtitle block -->
-{% block header_subtitle %} Create and view your task lists!{% endblock %}
+{% block header_subtitle %} Create a new task!{% endblock %}
 <!-- actions block -->
 {% block actions %} {% endblock %}
 
@@ -12,28 +12,28 @@
   <div class="row">
     <div class="col-md-12 order-md-1">
       <form class="form-signin" method="POST">
-        <label for="inputTaskListName" class="sr-only">Task List Name</label>
+        <label for="inputTaskTitle" class="sr-only">Task Title</label>
         <input
           type="text"
-          id="inputTaskListName"
-          name="list-name"
+          id="inputTaskTitle"
+          name="task-title"
           class="form-control mb-3"
           placeholder="Enter a name for your task list"
           required=""
           autofocus=""
         />
-        <label for="textAreaTaskListDescription" class="sr-only"
-          >Task List Description</label
+        <label for="textAreaTaskDescription" class="sr-only"
+          >Task Description</label
         >
         <textarea
-          id="textAreaTaskListDescription"
-          name="list-description"
+          id="textAreaTaskDescription"
+          name="task-description"
           class="form-control mb-3"
           placeholder="Enter a description for your task list"
         >
         </textarea>
         <button class="btn btn-lg btn-secondary btn-block" type="submit">
-          Create Task List
+          Create Task
         </button>
       </form>
     </div>

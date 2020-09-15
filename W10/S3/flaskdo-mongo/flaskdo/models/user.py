@@ -14,6 +14,7 @@ class User(db.Document):
         self.tasklists.append(tasklist_id)
 
     def authenticate(self, password):
+        # self.password (DB) == password (form)
         if self.password == password:
             return True
         else:

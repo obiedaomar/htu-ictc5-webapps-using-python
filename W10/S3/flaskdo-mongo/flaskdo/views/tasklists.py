@@ -1,11 +1,13 @@
 from flask import Flask, request, Blueprint, render_template, redirect, session, url_for
-from ..models import TaskList, User
+from ..models import TaskList, Task, User
+from ..core import login_required
 
 # create a blueprint
 bp = Blueprint('tasklists', __name__)
 
 
 @bp.route('/tasklist/create', methods=['GET', 'POST'])
+@login_required
 def create_tasklist():
     if request.method == 'GET':
         # render the create tasklist template
@@ -16,7 +18,7 @@ def create_tasklist():
         description = request.form['list-description']
 
         # create a tasklist document
-        tasklist = TaskList(name = name, description = description)
+        tasklist = TaskList(name = name, description = description, owner_id = session['user']['id'])
 
         # save the tasklist document
         tasklist.save()
@@ -38,20 +40,23 @@ def create_tasklist():
 
 
 @bp.route('/tasklist/<string:tasklist_id>')
+@login_required
 def view_tasklist(tasklist_id):
     tasklist = TaskList.query.get_or_404(tasklist_id)
-    return render_template('tasklist/view.html', tasklist = tasklist)
+    tasks = Task.query.filter(Task.tasklist_id == tasklist_id).all()
+    return render_template('tasklist/view.html', tasklist = tasklist, tasks = tasks)
+
+@bp.route('/tasklist/update/<string:tasklist_id>')
+@login_required
+def update_tasklist(tasklist_id):
+    pass
 
 @bp.route('/tasklist/delete/<string:tasklist_id>')
+@login_required
 def delete_tasklist(tasklist_id):
     # retrieve the tasklist
     tasklist = TaskList.query.get_or_404(tasklist_id)
     
-    # remove the id from the user tasklists in session
-    tasklists = list(session['user']['tasklists'])
-    tasklists.remove(tasklist_id)
-    session['user']['tasklists'] = tasklists
-
     # delete the tasklist
     tasklist.remove()
     
@@ -60,16 +65,10 @@ def delete_tasklist(tasklist_id):
 
 
 @bp.route('/tasklists')
-def tasklists():    
-    # get the list of tasklist ids
-    tasklist_ids = session['user']['tasklists']
-
+@login_required
+def tasklists():   
     # create a list to store the tasklists
-    tasklists = list()
-    
-    # append tasklists to tasklists based on their ids
-    for tasklist_id in tasklist_ids:
-        tasklists.append(TaskList.query.get(tasklist_id))
+    tasklists = TaskList.query.filter(TaskList.owner_id == session['user']['id'])
     
     # render the task lists template
     return render_template('tasklist/task-lists.html', tasklists = tasklists)

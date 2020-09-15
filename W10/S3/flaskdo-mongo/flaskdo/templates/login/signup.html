@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-md-12 order-md-1">
       <h4 class="mb-3">Personal Information</h4>
-      <form class="needs-validation" novalidate="" method="POST">
+      <form class="form-signin" method="POST">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -38,7 +38,7 @@
               class="form-control"
               id="firstName"
               name="firstName"
-              placeholder=""
+              placeholder="Cookie"
               value=""
               required=""
             />
@@ -51,7 +51,7 @@
               class="form-control"
               id="lastName"
               name="lastName"
-              placeholder=""
+              placeholder="Monster"
               value=""
               required=""
             />
@@ -70,7 +70,7 @@
               class="form-control"
               id="username"
               name="username"
-              placeholder="Username"
+              placeholder="cookie"
               required=""
             />
             <div class="invalid-feedback" style="width: 100%">
@@ -90,7 +90,7 @@
               class="form-control"
               id="password"
               name="password"
-              placeholder="Password"
+              placeholder="somepassword"
               required=""
             />
             <div class="invalid-feedback" style="width: 100%">
@@ -125,12 +125,10 @@
             placeholder="1234 Main St"
             required=""
           />
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+          <div class="invalid-feedback">Please enter a valid address.</div>
         </div>
         <hr class="mb-4" />
-        <button class="btn btn-primary btn-lg btn-block" type="submit">
+        <button class="btn btn-secondary btn-lg btn-block" type="submit">
           Create account
         </button>
       </form>

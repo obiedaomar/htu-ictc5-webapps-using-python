@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, session
+from flask import Flask, session, render_template
 from .core import db, intialize_db_config
 
 # create the Flask
@@ -18,19 +18,9 @@ intialize_db_config(app)
 def hello():
     return 'Hello, World!'
 
-# register template global function
-@app.template_global()
-def is_logged_in():
-    if 'user' in session:
-        return user
-    return None
-
-@app.template_global()
-def get_first_name():
-    if 'user' in session:
-        return session['user']['first_name']
-    else:
-        return None
+@app.route('/showsession')
+def show_session():
+    return render_template('session.html')
 
 # register the 'user' blueprint
 from .views import user
@@ -43,3 +33,7 @@ app.register_blueprint(home.bp)
 # register the 'tasklists' blueprint
 from .views import tasklists
 app.register_blueprint(tasklists.bp)
+
+# register the 'task' blueprint
+from .views import task
+app.register_blueprint(task.bp)

@@ -1,8 +1,25 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 
+<!-- content block -->
+{% block content %}
 <div class="container mt-4">
   <!-- Example row of columns -->
   <div class="row">
+    <div class="py-5 text-center">
+      <img
+        class="d-block mx-auto mb-4"
+        src="/docs/4.5/assets/brand/bootstrap-solid.svg"
+        alt=""
+        width="72"
+        height="72"
+      />
+      <h2>Why use FlaskDo?</h2>
+      <p class="lead">
+        Below is an example form built entirely with Bootstrap’s form controls.
+        Each required form group has a validation state that can be triggered by
+        attempting to submit the form without completing it.
+      </p>
+    </div>
     <div class="col-md-4">
       <h2>Written in Python!</h2>
       <p>
@@ -40,8 +57,7 @@
       </p>
     </div>
   </div>
-
   <hr />
 </div>
 
-{% endblock%}
+{% endblock %}

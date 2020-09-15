@@ -23,11 +23,11 @@
   <body class="d-flex flex-column h-100">
     <!-- navigation section -->
     <header
-      class="navbar navbar-expand navbar-light flex-column flex-md-row bd-navbar sticky-top"
+      class="navbar navbar-expand navbar-dark bg-dark box-shadow sticky-top"
     >
       <a class="navbar-brand" href="/">FlaskDo</a>
       <div class="navbar-nav-scroll">
-        {% if is_logged_in() %}
+        {% if session['is_logged_in'] %}
         <ul class="navbar-nav bd-navbar-nav flex-row">
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('tasklists.tasklists')}}"
@@ -49,7 +49,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Hello, {{get_first_name()}}!
+            Hello, {{session['user']['first_name']}}!
           </a>
           <div
             class="dropdown-menu dropdown-menu-md-right"
