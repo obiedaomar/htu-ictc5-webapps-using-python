@@ -16,9 +16,10 @@ def create_tasklist():
         # read values from the form submit
         name = request.form['list-name']
         description = request.form['list-description']
+        #is_public = request.form['is_public']
 
         # create a tasklist document
-        tasklist = TaskList(name = name, description = description, owner_id = session['user']['id'])
+        tasklist = TaskList(name = name, description = description, owner_id = session['user']['id'] ,is_public =True)
 
         # save the tasklist document
         tasklist.save()
@@ -72,7 +73,22 @@ def tasklists():
     
     # render the task lists template
     return render_template('tasklist/task-lists.html', tasklists = tasklists)
+@bp.route('/search', methods=['GET','POST'])
+def search():
+    if request.method == 'GET':
+        return render_template('search/search.html')
+    else:
+        search_keyword = request.form['search-keyword']
 
+        search_results = Task.query.filter(
+        {
+            "$or":[{Task.title:{"$regex":search_keyword}},
+                    {Task.description:{"$regex":search_keyword}}
+
+            ]
+        }
+    ).all()
+        return render_template("search/results.html",results=search_results ,keyword=search_keyword)
 
 # @bp.route('/user/update/<int:user_id>', methods=['POST'])
 # def update_user(user_id):

@@ -1,8 +1,12 @@
 from flask import Flask, request, Blueprint, render_template, redirect, session, url_for
 from ..models.user import User
+from ..core import login_required
+
 
 # create a blueprint
 bp = Blueprint('user', __name__)
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
 @bp.route('/signup', methods=['GET', 'POST'])
@@ -68,18 +72,63 @@ def logout():
     # redirect to /
     return redirect(url_for('home.index'))
 
-@bp.route('/user/<int:user_id>')
-def view_user(user_id):
-    pass
+@bp.route('/user')
+@login_required
+def view_user():
+    user =User.query.get_or_404(session['user']['id'])
+    return render_template('profile/profile.html',user = user)
 
-@bp.route('/user/delete/<int:user_id>')
-def delete_user(user_id):
-    pass
 
-@bp.route('/user/edit/<int:user_id>')
-def edit_user(user_id):
-    pass
 
+
+
+
+@bp.route('/user/delete/')
+def delete_user():
+    user =User.query.get_or_404(session['user']['id'])
+    user.remove()
+    return redirect(url_for('user.logout'))
+
+@bp.route('/user/edit',methods=['GET', 'POST'])
+def edit_user():
+    
+    user = User.query.get_or_404(session['user']['id'])
+    if request.method == 'GET':
+        return render_template('profile/edit-profile.html',user=user)
+    else:
+        username = request.form['username']
+        first_name= request.form['first-name']
+        last_name =request.form['last-name']
+        email =request.form['email']
+        address = request.form['address']
+        avatarURL=request.form['avatarURL']
+        #update feilds in db 
+        user.username = username
+        user.first_name =first_name
+        user.last_name =last_name
+        user.email = email
+        user.address = address
+        user.avatarURL=avatarURL
+
+        #user save update info
+        user.save()
+    return redirect(url_for('user.view_user'))
+
+@bp.route('/profile/changepassword',methods=['GET', 'POST'])
+def change_password():
+    user = User.query.get_or_404(session['user']['id'])
+    if request.method=="GET":
+        return render_template("profile/change-password.html", user=user)
+    else:
+        password = request.form['password']
+        user.password  = password
+
+        user.save
+
+        
+       
+        print("password is ",change_password)
+        return redirect("/login")
 
 # @bp.route('/user/update/<int:user_id>', methods=['POST'])
 # def update_user(user_id):
