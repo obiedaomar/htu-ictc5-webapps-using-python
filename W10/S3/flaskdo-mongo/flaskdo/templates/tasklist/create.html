@@ -1,43 +1,31 @@
-{% extends 'base.html' %}
-<!-- header title block -->
-{% block header_title%}Create a Task List{% endblock%}
-<!-- header subtitle block -->
-{% block header_subtitle %} Create and view your task lists!{% endblock %}
-<!-- actions block -->
-{% block actions %} {% endblock %}
+{% extends 'layout.html' %}
+<!-- page block -->
+{% block page %}
+<div class="container-fluid" id="page-content">
 
-<!-- Content block -->
-{% block content %}
-<div class="container mt-5">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Create Task List</h1>
+  </div>
+
+  <!-- Content Row -->
   <div class="row">
-    <div class="col-md-12 order-md-1">
-      <form class="form-signin" method="POST">
-        <label for="inputTaskListName" class="sr-only">Task List Name</label>
-        <input
-          type="text"
-          id="inputTaskListName"
-          name="list-name"
-          class="form-control mb-3"
-          placeholder="Enter a name for your task list"
-          required=""
-          autofocus=""
-        />
-        <label for="textAreaTaskListDescription" class="sr-only"
-          >Task List Description</label
-        >
-        <textarea
-          id="textAreaTaskListDescription"
-          name="list-description"
-          class="form-control mb-3"
-          placeholder="Enter a description for your task list"
-        >
-        </textarea>
-        <button class="btn btn-lg btn-secondary btn-block" type="submit">
-          Create Task List
-        </button>
-      </form>
-    </div>
+    <form class="user" method="POST" >
+      <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+          <input type="text" class="form-control form-control-user" id="inputName" name="inputName" placeholder="Enter task list name">
+        </div>
+
+        <div class="col-sm-12 mt-3">
+          <textarea type="text" class="form-control form-control-user" id="textareaDescription"name="textareaDescription" placeholder="Enter task list description"></textarea>
+            </div>
+      </div>
+      
+      <button  type="submit"  class="btn btn-primary btn-user btn-block">
+        Create task list
+      </button>
+    
+    </form>
   </div>
 </div>
-
-{% endblock content %}
+{% endblock %}

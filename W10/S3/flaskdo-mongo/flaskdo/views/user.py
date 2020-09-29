@@ -1,4 +1,4 @@
-from flask import Flask, request, Blueprint, render_template, redirect, session, url_for
+from flask import Flask, request, Blueprint, render_template, redirect, session, url_for ,flash
 from ..models.user import User
 from ..core import login_required
 
@@ -19,11 +19,11 @@ def signup():
     # if HTTP method is POST
     else:
         # read values from the signup form submit
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-        first_name = request.form['firstName']
-        last_name = request.form['lastName']
+        username = request.form['inputUsername']
+        email = request.form['inputEmail']
+        password = request.form['inputPassword']
+        first_name = request.form['inputFirstName']
+        last_name = request.form['inputLastName']
         address = request.form['address']
 
         # create a user document
@@ -44,8 +44,8 @@ def login():
         return render_template('login/login.html')
     else:
         # read values from the login form
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form['inputUsername']
+        password = request.form['inputPassword']
 
         # get User object based on the filter 'username'
         # User.username (DB) == username (form)
@@ -120,15 +120,24 @@ def change_password():
     if request.method=="GET":
         return render_template("profile/change-password.html", user=user)
     else:
-        password = request.form['password']
-        user.password  = password
+        current_password =request.form['current-password']
+        new_password =request.form['new-password']
+        confirm_password =request.form['confirm-password']
 
-        user.save
+        if user.password == current_password and new_password == confirm_password:
+            user.password  = new_password 
+            user.save()
 
-        
-       
-        print("password is ",change_password)
-        return redirect("/login")
+            flash("Password changed successfully",category="success")
+            return render_template("profile/change-password.html", user=user )
+        else:
+            flash("Password not changed",category="error")
+            return render_template("profile/change-password.html", user=user )
+
+
+            
+
+
 
 # @bp.route('/user/update/<int:user_id>', methods=['POST'])
 # def update_user(user_id):

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-     
-
-    </style>
     {% block head %}
-    <meta charset="utf-8" />
-    <title>{% block title %}FlaskDo{% endblock %}</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ url_for('static', filename='favicon.ico') }}"
-    />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>FlaskDo</title>
 
     {% block styles %}
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -24,149 +26,47 @@
     />
     <link
       rel="stylesheet"
-      href="/static/css/global.css"
+      href="/static/css/sb-admin-2.css"
       crossorigin="anonymous"
     />
 
     {% endblock %} {% endblock %}
   </head>
-  <body class="d-flex flex-column h-100">
-    <!-- navigation section -->
-    <header
-      class="navbar navbar-expand navbar-dark bg-dark box-shadow sticky-top"
-    >
-      <a class="navbar-brand" href="/">FlaskDo (my changes)</a>
-      <div class="navbar-nav-scroll">
-        {% if session['is_logged_in'] %}
-        <ul class="navbar-nav bd-navbar-nav flex-row">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('tasklists.tasklists')}}"
-              >Lists</a
+  <body class="bg-gradient-primary">
+
+          {% block actions %}
+            <a
+              href="{{url_for('user.login')}}"
+              class="btn btn-outline-danger py-2 px-3"
+              >Login</a
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href=""> search Tasks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('tasklists.search')}}">Search Task</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="">Tasks</a>
-          </li>
-
-        </ul>
-      </div>
-      <ul class="navbar-nav ml-md-auto">
-        <li>
-
-          <input type="text" id="tbSerach" >
-          <input type="submit" id="btnSearch">
-
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-item nav-link dropdown-toggle mr-md-2"
-            href="#"
-            id="bd-versions"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Hello, {{session['user']['first_name']}}!
-          </a>
-          <div
-            class="dropdown-menu dropdown-menu-md-right"
-            aria-labelledby="bd-versions"
-          >
-            <a class="dropdown-item" href="{{url_for('user.view_user')}}">Profile</a>
-            <a class="dropdown-item" href="{{url_for('user.change_password')}}">Change Password</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/logout">Logout</a>
-          </div>
-        </li>
-      </ul>
-      {% endif %}
-    </header>
-    <!-- header section -->
-
-    <header
-      class="d-flex flex-column flex-md-row align-items-md-center p-5 bg-light" 
-    >
-      <div class="pt-md-3 pb-md-4">
-        <h1 class="bd-title mt-0">
-          {% block header_title%}FlaskDo{% endblock %}
-        </h1>
-        <p class="bd-lead">
-          {% block header_subtitle%} A simple To-Do list to get you started.
-          Quickly add a list for your next project. Remember what you need to
-          buy. Share lists with the people who matter. {% endblock %}
-        </p>
-        {% block actions %}
-        <div class="d-flex flex-column flex-sm-row">
-          <a
-            href="{{url_for('user.login')}}"
-            class="btn btn-outline-secondary py-2 px-3"
-            >Login</a
-          >
-          <a
-            href="{{url_for('user.signup')}}"
-            class="btn btn-outline-secondary py-2 px-3 mt-3 mt-sm-0 ml-sm-3"
-            >Sign up</a
-          >
+            <a
+              href="{{url_for('user.signup')}}"
+              class="btn btn-outline-danger py-2 px-3 mt-3 mt-sm-0 ml-sm-3"
+              >Sign up</a
+            >
+          
+          {% endblock %}
         </div>
-        {% endblock %}
-      </div>
-    </header>
+      </header>
 
-    <!-- main section -->
-    <main>
-      {% for message in get_flashed_messages() %}
-      <div class="container">
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Holy guacamole!</strong> {{message}}
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
-      {% endfor %}
-      <div>{% block content %}{% endblock %}</div>
-    </main>
-
-    <!-- footer section -->
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">© 2020 FlaskDo</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-      </ul>
-    </footer>
-    {% block scripts %}
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
+  
+    
+      
+     {% block content %}
+    
+    
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    
 
     {% endblock %}
   </body>

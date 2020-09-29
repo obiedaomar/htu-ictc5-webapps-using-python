@@ -5,4 +5,4 @@ class TaskList(db.Document):
     description = db.StringField()
     owner_id = db.StringField()
     is_public= db.BoolField(default =False)
-    search_keyword = db.StringField()
+    

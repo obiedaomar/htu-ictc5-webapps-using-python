@@ -14,8 +14,8 @@ def create_tasklist():
         return render_template('tasklist/create.html')
     else:
         # read values from the form submit
-        name = request.form['list-name']
-        description = request.form['list-description']
+        name = request.form['inputName']
+        description = request.form['textareaDescription']
         #is_public = request.form['is_public']
 
         # create a tasklist document
@@ -50,7 +50,18 @@ def view_tasklist(tasklist_id):
 @bp.route('/tasklist/update/<string:tasklist_id>')
 @login_required
 def update_tasklist(tasklist_id):
-    pass
+        # retrieve the tasklist
+    tasklist = TaskList.query.get_or_404(tasklist_id)
+    if request.method == 'GET':
+        return render_template('tasklist/update-list.html',tasklist = tasklist)
+    else:
+        name= request.form['name']
+        description= request.form['description']
+        
+        tasklist.save()
+    return redirect(url_for('tasklists.view_tasklist'))
+    
+
 
 @bp.route('/tasklist/delete/<string:tasklist_id>')
 @login_required
@@ -73,6 +84,7 @@ def tasklists():
     
     # render the task lists template
     return render_template('tasklist/task-lists.html', tasklists = tasklists)
+
 @bp.route('/search', methods=['GET','POST'])
 def search():
     if request.method == 'GET':
@@ -80,15 +92,27 @@ def search():
     else:
         search_keyword = request.form['search-keyword']
 
-        search_results = Task.query.filter(
+        tasks = Task.query.filter(
         {
             "$or":[{Task.title:{"$regex":search_keyword}},
                     {Task.description:{"$regex":search_keyword}}
 
-            ]
+                ]
         }
     ).all()
-        return render_template("search/results.html",results=search_results ,keyword=search_keyword)
+        print(len(tasks))
+        tasklists = TaskList.query.filter(
+            {
+                "$or":[{TaskList.name:{"$regex":search_keyword}},
+                        {TaskList.description:{"$regex":search_keyword}}
+
+                    ]
+            }
+        ).all()
+        print(len(tasklists))
+
+
+        return render_template("search/results.html",tasks =tasks ,tasklists=tasklists ,keyword=search_keyword)
 
 # @bp.route('/user/update/<int:user_id>', methods=['POST'])
 # def update_user(user_id):
@@ -100,3 +124,81 @@ def search():
 #         return redirect(url_for('list_user'))
 #     form = UserForm(document=user)
 #     return render_template('/user/edit.html', form=form, user=user)
+
+@bp.route('/favorites' ,methods=['GET'])
+def view_favorites():
+
+    if request.method=='GET':
+        favorites_tasklists = TaskList.query.filter(
+            {
+                '$and': [
+                    {TaskList.owner_id:session['user']['id'] },
+                    {TaskList.is_favorite:True}
+                ]       
+            }
+            ).all()
+
+
+        return render_template('tasklist/favorites.html',tasklists=favorites_tasklists)
+
+@bp.route('/private' ,methods=['GET'])
+def view_private():
+
+    if request.method=='GET':
+        private_tasklists = TaskList.query.filter(
+            {
+                '$and': [
+                    {TaskList.owner_id:session['user']['id'] },
+                    {TaskList.is_private:True}
+                ]       
+            }
+            ).all()
+
+
+        return render_template('tasklist/private.html',tasklists=private_tasklists)
+
+
+
+@bp.route('/favorite/<tasklist_id>')    
+def set_favorite(tasklist_id):
+    
+    tasklist =TaskList.query.get_or_404(tasklist_id)
+
+    if tasklist.is_favorite == True:
+
+        tasklist.is_favorite = False
+    else:
+        tasklist.is_favorite = True
+
+    tasklist.save()
+    return redirect('/favorites')  
+
+@bp.route('/tasklist/private/<tasklist_id>',methods=['GET','POST'])    
+def mark_private(tasklist_id):
+
+    tasklist =TaskList.query.get_or_404(tasklist_id)
+
+    if tasklist.is_private == True :
+
+        tasklist.is_private = False
+    else:
+
+        tasklist.is_private = True
+
+    tasklist.save()
+
+    return redirect('/private')   
+
+@bp.route('/overdue/tasklist/<tasklist_id>', methods =['GET'])
+@login_required
+def view_overdue(tasklist_id  ):
+    tasklists = TaskList.query.filter(TaskList.owner_id == session['user']['id'])
+    # if request.method == 'GET':
+    #     return render_template('tasklist/overdue.html',tasklists=tasklists)
+    print(tasklists)
+            
+    return render_template('index.html', tasklists =tasklists , tasklist_id =tasklist_id )
+
+    
+
+

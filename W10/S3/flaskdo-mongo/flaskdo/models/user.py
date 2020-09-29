@@ -9,7 +9,7 @@ class User(db.Document):
     last_name = db.StringField()
     address = db.StringField()
     tasklists = db.ListField(db.StringField())
-    avatarURL =db.StringField()
+    #avatarURL =db.StringField()
 
     def add_tasklist(self, tasklist_id):
         self.tasklists.append(tasklist_id)
